@@ -211,3 +211,8 @@ from
 ) tbl2
 where ranks = 1;
 
+
+
+
+For Output - Go to Image Forlder
+For more Reference - hive_assignment_commands.txt
