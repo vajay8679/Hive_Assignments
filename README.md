@@ -21,7 +21,7 @@ Footer
 
 #####################PRACTICAL OPERATIONS###################################
 
-# STEP - 1 (Download vechile sales data -> https://github.com/shashank-mishra219/Hive-Class/blob/main/sales_order_data.csv)
+ STEP - 1 (Download vechile sales data -> https://github.com/shashank-mishra219/Hive-Class/blob/main/sales_order_data.csv)
 
 
 Downloaded Data from github and took sales_order_data.csv file in one seperate folder with name Hive_Assignment
@@ -29,7 +29,7 @@ Downloaded Data from github and took sales_order_data.csv file in one seperate f
 git clone https://github.com/shashank-mishra219/Hive-Class.git
 
 
-# STEP - 2 (Store raw data into hdfs location)STEP - 2 (Store raw data into hdfs location)
+ STEP - 2 (Store raw data into hdfs location)STEP - 2 (Store raw data into hdfs location)
 
 I created table sales_order_data.csv into hdfs and move into a folder
 
@@ -40,7 +40,7 @@ copy data into  hive_class folder
 cp sales_order_data.csv /tmp/hive_class/
 
 
-# STEP - 3  (Create a internal hive table "sales_order_csv" which will store csv data sales_order_csv .. make sure to skip header row while creating table)
+ STEP - 3  (Create a internal hive table "sales_order_csv" which will store csv data sales_order_csv .. make sure to skip header row while creating table)
 
 
 create a database
@@ -80,13 +80,13 @@ tblproperties("skip.header.line.count"="1")
 
 
 
-# STEP - 4 (Load data from hdfs path into "sales_order_csv")
+ STEP - 4 (Load data from hdfs path into "sales_order_csv")
 
 
 load data local inpath 'file:///tmp/hive_class/sales_order_data.csv/' into table sales_order_csv;
 
 
-# STEP - 5 (Create an internal hive table which will store data in ORC format "sales_order_orc")
+ STEP - 5 (Create an internal hive table which will store data in ORC format "sales_order_orc")
 
 
 create table sales_order_orc
@@ -116,7 +116,7 @@ DEALSIZE string
 stored as orc;
 
 
-# STEP - 6 (Load data from "sales_order_csv" into "sales_order_orc")
+ STEP - 6 (Load data from "sales_order_csv" into "sales_order_orc")
 
 
 from sales_order_csv insert overwrite table sales_order_orc select *;
@@ -131,7 +131,7 @@ set hive.cli.print.header = true;
 
 
 
-# a. Calculatye total sales per year
+ a. Calculatye total sales per year
 
 
 select YEAR_ID as Year,SUM(SALES) as total_sales_per_year from sales_order_orc group by YEAR_ID;
@@ -147,7 +147,7 @@ year	total_sales_per_year
 
 
 
-# b. Find a product for which maximum orders were placed
+ b. Find a product for which maximum orders were placed
 
 
 select SUM(QUANTITYORDERED) as Total_Qantity,PRODUCTLINE as Max_order_Product from sales_order_orc group by PRODUCTLINE order by Total_Qantity desc limit 1;
@@ -160,7 +160,7 @@ total_qantity	max_order_product
 
 
 
-# c. Calculate the total sales for each quarter
+ c. Calculate the total sales for each quarter
 
 
 
@@ -180,7 +180,7 @@ total_sales_each_quarter	quarter
 
 
 
-# d. In which quarter sales was minimum
+ d. In which quarter sales was minimum
 
 
 
@@ -196,7 +196,7 @@ total_sales	quarter
 
 
 
-# e. In which country sales was maximum and in which country sales was minimum
+ e. In which country sales was maximum and in which country sales was minimum
 
 
 
@@ -214,7 +214,7 @@ _u1.total_sales	_u1.country
 
 
 
-# f. Calculate quartelry sales for each city
+ f. Calculate quartelry sales for each city
 
 
 
@@ -254,7 +254,7 @@ Bergen	Q4	95277.1799316
 
 
 
-# h. Find a month for each year in which maximum number of quantities were sold Footer
+ h. Find a month for each year in which maximum number of quantities were sold Footer
 
 
 
