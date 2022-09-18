@@ -130,31 +130,16 @@ set hive.cli.print.header = true;
 
 
 
-
  a. Calculatye total sales per year
 
 
 select YEAR_ID as Year,SUM(SALES) as total_sales_per_year from sales_order_orc group by YEAR_ID;
 
 
-year	total_sales_per_year
-2003	3516979.547241211
-2004	4724162.593383789
-2005	1791486.7086791992
-
-
-
-
-
-
  b. Find a product for which maximum orders were placed
 
 
 select SUM(QUANTITYORDERED) as Total_Qantity,PRODUCTLINE as Max_order_Product from sales_order_orc group by PRODUCTLINE order by Total_Qantity desc limit 1;
-
-
-total_qantity	max_order_product
-33992	Classic Cars
 
 
 
@@ -167,28 +152,9 @@ total_qantity	max_order_product
 
 select sum(SALES) as total_sales_each_quarter,QTR_ID as Quarter from sales_order_orc group by QTR_ID;
 
-
-total_sales_each_quarter	quarter
-2350817.726501465	1
-2048120.3029174805	2
-1758910.808959961	3
-3874780.010925293	4
-
-
-
-
-
-
-
  d. In which quarter sales was minimum
 
-
-
 select sum(SALES) as total_sales,QTR_ID as Quarter from sales_order_orc group by QTR_ID order by total_sales limit 1;
-
-
-total_sales	quarter
-1758910.808959961	3
 
 
 
@@ -205,18 +171,7 @@ UNION ALL
 select sum(SALES) as Total_Sales,COUNTRY from sales_order_orc group by COUNTRY order by Total_Sales desc limit 1;
 
 
-_u1.total_sales	_u1.country
-57756.43029785156	Ireland
-3627982.825744629	USA
-
-
-
-
-
-
  f. Calculate quartelry sales for each city
-
-
 
 select city,quarter,sum(sales) as total_sales
 from 
@@ -231,26 +186,6 @@ from
 ) t1 
 group by city,quarter
 order by city,quarter;
-
-
-
-city	quarter	total_sales
-Aaarhus	Q4	100595.5498046875
-Allentown	Q2	6166.7998046875
-Allentown	Q3	71930.61041259766
-Allentown	Q4	44040.729736328125
-Barcelona	Q2	4219.2001953125
-Barcelona	Q4	74192.66003417969
-Bergamo	Q1	56181.320068359375
-Bergamo	Q4	81774.40008544922
-Bergen	Q3	16363.099975585938
-Bergen	Q4	95277.1799316
-
-
-
-
-
-
 
 
 
@@ -276,8 +211,3 @@ from
 ) tbl2
 where ranks = 1;
 
-
-year_id	month_id	total_sales
-2003	11	1029837.6627197266
-2004	11	1089048.0076293945
-2005	5	457861.06036376953
