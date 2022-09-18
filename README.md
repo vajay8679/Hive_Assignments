@@ -22,7 +22,7 @@ Footer
 #####################PRACTICAL OPERATIONS###################################
 
 
-STEP - 1 (Download vechile sales data -> https://github.com/shashank-mishra219/Hive-Class/blob/main/sales_order_data.csv)
+#STEP - 1 (Download vechile sales data -> https://github.com/shashank-mishra219/Hive-Class/blob/main/sales_order_data.csv)
 
 Downloaded Data from github and took sales_order_data.csv file in one seperate folder with name Hive_Assignment
 
