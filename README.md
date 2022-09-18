@@ -126,7 +126,7 @@ set hive.cli.print.header = true;
 
 
 
-# ###############Perform below menioned queries on "sales_order_orc" table########################
+ ###############Perform below menioned queries on "sales_order_orc" table########################
 
 
 
